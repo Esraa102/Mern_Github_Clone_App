@@ -13,7 +13,7 @@ import path from "path";
 
 const app = express();
 const port = process.env.PORT || 5001;
-const __dirname = path.resolve("../");
+const __dirname = path.resolve();
 
 console.log(__dirname);
 connectToDB();
