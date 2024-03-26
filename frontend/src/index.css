@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: linear-gradient(
+      to bottom right,
+      rgba(0, 0, 0, 0.9),
+      rgba(0, 0, 0, 0.4)
+    ),
+    url("/public/assets/bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #22c3e6;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #22c3e6;
+}
+
+@layer components {
+  .section {
+    @apply py-10 px-6 h-screen overflow-y-auto w-full;
+  }
+  .bg-glass {
+    @apply bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 
+		hover:bg-gray-600/10 border border-gray-800 text-white;
+  }
+  .link {
+    @apply text-xl md:text-4xl p-2 rounded-md 
+    w-[40px] h-[40px] flex items-center justify-center hover:bg-slate-800 transition;
+  }
+  .form {
+    @apply w-[80%] md:w-[45%] p-4 sm:py-4 sm:px-8 md:py-8 md:px-10 rounded-lg bg-glass flex flex-col  items-center;
+  }
+  .form-header {
+    @apply text-center text-xl md:text-2xl mb-6 font-semibold;
+  }
+  .account-btn {
+    @apply flex gap-2 items-center flex-wrap justify-center text-sm md:text-lg px-3 py-2 md:px-4 
+    bg-slate-800 w-full rounded-md mb-4;
+  }
+  .form-link {
+    @apply font-semibold hover:text-blue-600 underline transition;
+  }
+  .th-head {
+    @apply px-6 py-3 text-lg  border-r border-r-gray-700;
+  }
+  .tr-row {
+    @apply bg-transparent border-b border-b-gray-700 text-center;
+  }
+  .th-cell {
+    @apply px-6 py-4 font-medium text-gray-200 whitespace-nowrap border-r border-r-gray-700;
+  }
+  .td {
+    @apply px-6 py-4 border-r border-r-gray-700;
+  }
+  .repo-btn {
+    @apply px-4 md:px-6 text-sm sm:text-lg rounded-md py-2 bg-glass border border-gray-700;
+  }
+  .tag {
+    @apply flex items-center gap-2 text-white  font-medium  px-4 py-0.5 rounded-full;
+  }
+}
