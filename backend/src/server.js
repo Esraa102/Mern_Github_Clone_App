@@ -9,10 +9,13 @@ import { connectToDB } from "./config/connectDB.js";
 import { authRouter } from "./routes/authRoutes.js";
 import passport from "passport";
 import session from "express-session";
+import path from "path";
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5001;
+const __dirname = path.resolve("../");
 
+console.log(__dirname);
 connectToDB();
 
 app.use(
@@ -27,6 +30,11 @@ app.use("/api/auth", authRouter);
 app.use("/api/users", userRoutes);
 app.use("/api/explore", exploreRouter);
 
+app.use(express.static(path.join(__dirname, "/frontend/dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
+});
 app.listen(port, () => {
-  console.log("Running On", port);
+  console.log(`Server Running On http://localhost:${port}`);
 });
